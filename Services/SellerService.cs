@@ -41,7 +41,7 @@ namespace SalesWebMvc.Services
                 await _context.SaveChangesAsync();
             }
 
-            catch (DbUpdateException e)
+            catch (DbUpdateException)
             {
                 throw new IntegrityException("Não pode ser deletado pois o vendedor possui vendas!");
             }
@@ -58,7 +58,7 @@ namespace SalesWebMvc.Services
             try
             {
                 _context.Update(obj);
-               await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException e)
             {
