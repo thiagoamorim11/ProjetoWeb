@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SalesWebMvc.Models;
+using static System.Net.WebRequestMethods;
 
 namespace Identity.Controllers
 {
@@ -21,7 +23,7 @@ namespace Identity.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("UserPage");
+                return RedirectToAction (nameof(UserPage));
             }
 
             return View();
@@ -38,7 +40,7 @@ namespace Identity.Controllers
                     if (usuario.Login == "Thiago" && usuario.Senha == "123456")
                     {
                         Login(usuario);
-                        return RedirectToAction("UserPage");
+                      return RedirectToAction(nameof(UserPage));
                     }
                     else
                     {
@@ -74,7 +76,7 @@ namespace Identity.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimPrincipal, propriedadesDeAutenticacao);
         }
 
-        [Authorize]
+    
         public IActionResult UserPage()
         {
             return View();
@@ -83,7 +85,7 @@ namespace Identity.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }
