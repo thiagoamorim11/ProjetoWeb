@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SalesWebMvc.Models;
 using static System.Net.WebRequestMethods;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.AspNetCore.Session;
 
 namespace Identity.Controllers
 {
@@ -76,8 +78,7 @@ namespace Identity.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimPrincipal, propriedadesDeAutenticacao);
         }
 
-    
-        public IActionResult UserPage()
+          public IActionResult UserPage()
         {
             return View();
         }
