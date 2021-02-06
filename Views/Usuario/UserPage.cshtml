@@ -10,3 +10,23 @@
     <a href="~/Usuario/Logout" class="btn btn-warning">Realizar o logout</a>
 </center>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Departaments" asp-action="Index">Departaments</a></li>
+                <li><a asp-area="" asp-controller="Sellers" asp-action="Index">Sellers</a></li>
+                <li><a asp-area="" asp-controller="SalesRecords" asp-action="Index">Sales</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-right">
+                <li><a asp-area="" asp-controller="Usuario" asp-action="LoginPage" class="nav navbar-toggle">Sair</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</nav>
