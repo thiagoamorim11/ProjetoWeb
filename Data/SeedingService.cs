@@ -23,6 +23,8 @@ namespace SalesWebMvc.Data
                 return; // Db has been seeded (Banco de Dados já populado)
             }
 
+            Registro c1 = new Registro(1, "Bob Brown", "123456", "bob@gmail.com", new DateTime(1998, 4, 21));
+
             Departament d1 = new Departament(1, "Computers");
             Departament d2 = new Departament(2, "Eletronics");
             Departament d3 = new Departament(3, "Fashion");
@@ -65,6 +67,8 @@ namespace SalesWebMvc.Data
             SalesRecord r28 = new SalesRecord(28, new DateTime(2018, 10, 7), 4000.0, SaleStatus.Billed, s3);
             SalesRecord r29 = new SalesRecord(29, new DateTime(2018, 10, 23), 12000.0, SaleStatus.Billed, s5);
             SalesRecord r30 = new SalesRecord(30, new DateTime(2018, 10, 12), 5000.0, SaleStatus.Billed, s2);
+
+            _context.Registro.AddRange(c1);
 
             _context.Departament.AddRange(d1, d2, d3, d4);
 

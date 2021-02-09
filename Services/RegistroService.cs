@@ -15,5 +15,11 @@ namespace SalesWebMvc.Data
         {
             _context = context;
         }
+
+        public void Insert(Registro obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
     }
 }
