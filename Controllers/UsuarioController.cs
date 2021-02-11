@@ -11,11 +11,18 @@ using SalesWebMvc.Models;
 using static System.Net.WebRequestMethods;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.AspNetCore.Session;
+using SalesWebMvc.Data;
+using SalesWebMvc.Services;
 
-namespace Identity.Controllers
+namespace SalesWebMvc.Controllers
 {
     public class UsuarioController : Controller
     {
+        private readonly UsuarioService _usuarioService;
+        public UsuarioController (UsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
         public IActionResult Index()
         {
             return View();
@@ -39,10 +46,11 @@ namespace Identity.Controllers
                 if (ModelState.IsValid)
                 {
                     //aqui poderia ter alguma requisição para base de dados, estou usando dados estáticos para não complicar
+  
                     if (usuario.Login == "Thiago" && usuario.Senha == "123456")
                     {
                         Login(usuario);
-                      return RedirectToAction(nameof(UserPage));
+                        return RedirectToAction(nameof(UserPage));
                     }
                     else
                     {
