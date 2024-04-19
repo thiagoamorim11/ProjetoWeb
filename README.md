@@ -24,4 +24,4 @@
 
 #### O projeto não tem descritivo de execução.
 
-#### Projeito deito em 2021.
+#### Projeito feito em 2021.
